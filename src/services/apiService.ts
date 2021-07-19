@@ -1,4 +1,4 @@
-import { Observable, of } from "rxjs";
+import { Observable, of, throwError } from "rxjs";
 import { from } from 'rxjs'
 import { AxiosInstance } from 'axios';
 import { NormalizedObject } from "../reducers/types";
@@ -30,7 +30,7 @@ export class ApiService implements IApiService {
             switchMap((result) => {
                 const status: Status = result.data.status
                 return status.errorCode ?
-                    Observable.throw(new ApiError(status.errorCode, status.errorMessage)) :
+                    throwError(() => new ApiError(status.errorCode, status.errorMessage)) :
                     of(result)
             }),
             map((result) => {
