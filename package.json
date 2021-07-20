@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
+    "@types/styled-components-react-native": "^5.1.1",
     "axios": " 0.21.1",
     "humps": "2.0.1",
     "i18n-js": "3.8.0",
